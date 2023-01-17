@@ -11,3 +11,11 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.bg {
+  background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .6)), url(/src/fakeData/Rectangle\ 1.png);
+  background-size: cover;
+  color: #ffffff !important;
+  min-height: fit-content;
+  min-height: 100vh;
+}

@@ -1,0 +1,29 @@
+.img img {
+    margin: 10px 0px;
+}
+
+.detailsss span {
+    margin: 0px 5px;
+}
+
+.detailsss p, h4, span {
+    color: black;
+}
+
+
+.detailsss h4 {
+    font-size: 17px;
+}
+
+.item-container {
+    background-color: #faf5f5;
+    padding: 10px;
+    margin: 15px 0px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px rgb(108, 139, 175);
+    cursor: pointer;
+}
+
+.detailsss {
+    margin-left: 15px;
+}

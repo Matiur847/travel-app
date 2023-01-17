@@ -1,24 +1,17 @@
-import logo from './logo.svg';
+import { createContext, useState } from 'react';
 import './App.css';
+import Layout from './components/Layout/Layout';
+
+export const categoryContext = createContext();
 
 function App() {
+
+  const [bookingInfo, setBookingInfo] = useState({})
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <categoryContext.Provider value={{bookingInfo, setBookingInfo}}>
+      <Layout />
+    </categoryContext.Provider>
   );
 }
 

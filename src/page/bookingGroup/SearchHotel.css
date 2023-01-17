@@ -1,0 +1,26 @@
+.hotel-container {
+    background: #FFFFFF;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.card-container {
+    background-color: #FFFFFF;
+    border-radius: 10px;
+}
+
+h3 {
+    color: black;
+}
+
+.header {
+    border-top: 1px solid rgb(55, 172, 207);
+    margin-top: 20px;
+}
+
+.google-maps {
+    border-radius: 10px;
+    height: 100%;
+    background-color: #faf5f5;
+    padding: 20px;
+}

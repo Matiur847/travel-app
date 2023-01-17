@@ -1,0 +1,31 @@
+.booking {
+    background: blue;
+}
+
+/* .card-detail [type=button]:not(:disabled),
+[type=reset]:not(:disabled),
+[type=submit]:not(:disabled),
+button:not(:disabled) {
+    border: 0px;
+    position: absolute;
+    bottom: 25px;
+    font-weight: 700 !important;
+    font-size: 25px !important;
+} */
+
+
+
+
+/* [type=button]:not(:disabled),
+[type=reset]:not(:disabled),
+[type=submit]:not(:disabled),
+button:not(:disabled) */
+
+.card-detail button {
+    background-color: blue;
+    position: absolute;
+    border: 0px;
+    bottom: 25px;
+    font-size: 25px;
+    font-weight: 700 !important;
+}
