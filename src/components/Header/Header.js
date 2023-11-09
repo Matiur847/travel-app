@@ -8,25 +8,34 @@ import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth';
 const Header = () => {
 
     const [existingName, setExistingName] = useState(null)
-    const [signoutMsg, setSignOutMsg] = useState()
-
-    // console.log(existingName)
+    const [user, setUser] = useState({ isSignedIn: false })
 
     const auth = getAuth()
-    onAuthStateChanged(auth, (user) => {
-        if(user) {
-            // console.log(auth.currentUser)
-            const userSlice = auth.currentUser.email.slice(0, 6);
-            setExistingName(userSlice)
-        }
-    })
+    const handleSignIn = () => {
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                const userSlice = auth.currentUser.email.slice(0, 6);
+                setExistingName(userSlice)
+                const isSigninUser = {
+                    isSignedIn: true
+                }
+                setUser(isSigninUser)
+            }
+        })
+    }
 
     const handleLogout = () => {
-        const auth = getAuth()
         signOut(auth)
-        .then(() => {
-            console.log('signout successful')
-        })
+            .then(() => {
+                alert('Logout Successful')
+                const isSignOutUser = {
+                    isSignedIn: false
+                }
+                setUser(isSignOutUser)
+            })
+            .catch((error) => {
+                console.log('Somthing is wrong')
+            });
     }
 
     return (
@@ -43,20 +52,20 @@ const Header = () => {
                                     <input type="search" placeholder='Search Your Destination' />
                                 </div>
                                 <div className="menu">
-                                    <Link to='/home'>News</Link>
+                                    <Link to='/home'>Home</Link>
                                     <Link to='/home'>Destination</Link>
                                     <Link to='/home'>Blog</Link>
                                     <Link to='/home'>Contact</Link>
-                                    
+
                                     {
-                                        existingName === null ? <Button className='btn btn-warning'>
-                                            <Link to='/login' className='login'>Login</Link>
-                                        </Button> : (
+                                        user.isSignedIn ? (
                                             <>
                                                 <Link className='login'>{existingName}</Link>
                                                 <Link onClick={handleLogout}>Logout</Link>
                                             </>
-                                        )
+                                        ) : <Button className='btn btn-warning'>
+                                            <Link to='/login' className='login' onClick={handleSignIn}>Login</Link>
+                                        </Button>
                                     }
 
                                 </div>

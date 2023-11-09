@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import configFirebase from '../firebase/Auth';
 
 
-import { getAuth, signInWithPopup, GoogleAuthProvider, createUserWithEmailAndPassword } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
 
 const SignUp = () => {

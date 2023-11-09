@@ -5,27 +5,24 @@ import locations from '../fakeData';
 import LocationItem from './LocationItem';
 import { BsArrowRight } from 'react-icons/bs'
 
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import '../style/Home.css'
 
-// another projects 
 
 import SwiperCore, { Navigation, Pagination, Scrollbar, A11y, Autoplay } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 SwiperCore.use([Navigation, Pagination, Scrollbar, A11y, Autoplay]);
 
 
 const Home = () => {
 
-    // const navigate = useNavigate()
 
     const [slideIndex, setSlideIndex] = useState(0)
     const [booking, setBooking] = useState({})
@@ -44,13 +41,12 @@ const Home = () => {
         }
     }
 
-    // console.log(booking)
 
     return (
         <div >
             <section>
                 <Container className='forSpace'>
-                    <Row className='mt-5'>
+                    <Row className='align-items-center mt-5'>
                         <Col sm='4' xl='4'>
                             <div className="detail">
                                 <h1>{booking.name}</h1>
@@ -68,7 +64,7 @@ const Home = () => {
                                 slidesPerView={3}
                                 navigation
                                 autoplay={{
-                                    delay: 3000,
+                                    delay: 4000,
                                     disableOnInteraction: false
                                 }}
                                 loop={true}

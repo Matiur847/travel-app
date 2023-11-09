@@ -1,17 +1,14 @@
 import React, { useState } from 'react';
-import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import { Pagination, Navigation } from "swiper";
-import { FreeMode } from 'swiper';
-import { Card, Col, Container, Row } from 'react-bootstrap';
+import { Col, Container, Row } from 'react-bootstrap';
 import '../style/Login.css'
 import { Button } from 'reactstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 
 const Login = () => {
@@ -19,6 +16,8 @@ const Login = () => {
     const [name, setName] = useState()
     const [password, setPassword] = useState()
     const [error, setError] = useState()
+
+    const navigate = useNavigate();
 
 
 
@@ -41,7 +40,8 @@ const Login = () => {
             const auth = getAuth();
             signInWithEmailAndPassword(auth, name, password)
                 .then((result) => {
-                    console.log('loginResult', result)
+                    navigate('/home')
+                    alert('Login Successful')
                 })
                 .catch((error) => {
                     if (error.code === 'auth/wrong-password') {
